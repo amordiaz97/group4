@@ -44,13 +44,12 @@ songs = {"Crazy in Love - Beyonce" : "https://www.youtube.com/embed/watch?v=Viwt
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+
         template = env.get_template('project-draft.html')
         self.response.write(template.render())
-<<<<<<< Updated upstream
-=======
 
-<<<<<<< HEAD
-=======
+    	template = env.get_template('project-draft.html')
+    	self.response.write(template.render())
 
 class SongHandler(webapp2.RequestHandler):  
     def get(self):
@@ -59,12 +58,16 @@ class SongHandler(webapp2.RequestHandler):
         result = {'link': 'https://www.youtube.com/embed/watch?v=eRaFMlZ1YHA'}
         # result = random.choice(songs.values())
         self.response.write(template.render(result)) #we need to add the dictionary that will pass on the variable(song) to the document
->>>>>>> Stashed changes
 
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
+class SongHandler(webapp2.RequestHandler):	
+	def get(self):
+		template = env.get_template('song.html')
+		# self.songShuffle('songs')
+		result = {'link': 'https://www.youtube.com/embed/watch?v=eRaFMlZ1YHA'}
+		# result = random.choice(songs.values())
+		self.response.write(template.render(result)) #we need to add the dictionary that will pass on the variable(song) to the document
+
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/matching_song', SongHandler)
