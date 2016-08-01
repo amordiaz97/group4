@@ -3,3 +3,10 @@ h1 { text-align: center}
 
 h1 { font-family: "Times New Roman", Times, serif
 }
+
+#image1 {
+    float: left;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
