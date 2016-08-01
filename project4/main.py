@@ -61,6 +61,9 @@ class SongHandler(webapp2.RequestHandler):
 		self.response.write(template.render(result)) #we need to add the dictionary that will pass on the variable(song) to the document
 >>>>>>> Stashed changes
 
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
