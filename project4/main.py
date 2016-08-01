@@ -16,6 +16,7 @@
 #
 import webapp2
 import jinja2
+import random
 
 env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
@@ -24,7 +25,20 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
     	template = env.get_template('project-draft.html')
     	self.response.write(template.render())
+<<<<<<< Updated upstream
+=======
+
+
+class SongHandler(webapp2.RequestHandler):	
+	def get(self):
+		template = env.get_template('song.html')
+		# self.songShuffle('songs')
+		result = {'link': 'https://www.youtube.com/embed/watch?v=eRaFMlZ1YHA'}
+		# result = random.choice(songs.values())
+		self.response.write(template.render(result)) #we need to add the dictionary that will pass on the variable(song) to the document
+>>>>>>> Stashed changes
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/matching_song', SongHandler)
 ], debug=True)
