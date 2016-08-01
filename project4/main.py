@@ -27,7 +27,7 @@ result = { }
 
 
 class MainHandler(webapp2.RequestHandler):
-<<<<<<< HEAD
+
 	def get(self):
 		template = env.get_template('project-draft.html')
 		self.response.write(template.render())
@@ -66,7 +66,7 @@ class SongHandler(webapp2.RequestHandler):
 		self.response.write(template.render(data)) #we need to add the dictionary that will pass on the variable(song) to the document
 
 
-=======
+
     def get(self):
 
         template = env.get_template('project-draft.html')
@@ -89,7 +89,7 @@ class SongHandler(webapp2.RequestHandler):
 		self.response.write(template.render(result)) #we need to add the dictionary that will pass on the variable(song) to the document
 
 
->>>>>>> origin/master
+
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
 	('/matching_song', SongHandler)
