@@ -19,15 +19,12 @@ import jinja2
 
 env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
-songs: {"Crazy in Love by Beyonce" : "https://www.youtube.com/watch?v=ViwtNLUqkMY" , "This Is What You Came For by Calvin Harris ft. Rihanna" : "https://www.youtube.com/watch?v=kOkQ4T5WO9E" , "Dani California by Red Hot Chili Peppers" : "https://www.youtube.com/watch?v=Sb5aq5HcS1A" , "Cosmic Love by Florence and the Machine" : "https://www.youtube.com/watch?v=2EIeUlvHAiM", }
-
-
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
     	template = env.get_template('project-draft.html')
     	self.response.write(template.render())
-    	
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
