@@ -48,9 +48,6 @@ class MainHandler(webapp2.RequestHandler):
         template = env.get_template('project-draft.html')
         self.response.write(template.render())
 
-    	template = env.get_template('project-draft.html')
-    	self.response.write(template.render())
-
 class SongHandler(webapp2.RequestHandler):  
     def get(self):
         template = env.get_template('song.html')
