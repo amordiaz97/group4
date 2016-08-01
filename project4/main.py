@@ -19,7 +19,8 @@ import jinja2
 import random
 
 env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
-songs: {"Crazy in Love - Beyonce" : "https://www.youtube.com/embed/watch?v=ViwtNLUqkMY" , 
+
+songs = {"Crazy in Love - Beyonce" : "https://www.youtube.com/embed/watch?v=ViwtNLUqkMY" , 
         "This Is What You Came For - Calvin Harris ft. Rihanna" : "https://www.youtube.com/embed/watch?v=kOkQ4T5WO9E" , 
         "Dani California - Red Hot Chili Peppers" : "https://www.youtube.com/embed/watch?v=Sb5aq5HcS1A" , 
         "Cosmic Love - Florence and the Machine" : "https://www.youtube.com/embed/watch?v=2EIeUlvHAiM", 
