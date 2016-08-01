@@ -53,7 +53,7 @@ class SongHandler(webapp2.RequestHandler):
 		"Dream On - Aerosmith" : "https://www.youtube.com/embed/hHRNSeuvzlM",
 		"Bohemian Rhapsody - Queen" : "https://www.youtube.com/embed/fJ9rUzIMcZQ",
 		"Never Gonna Give You Up - Rick Astley" : "https://www.youtube.com/embed/dQw4w9WgXcQ",
-		"Roses - Chainsmokers ft. Rozes" : "https://www.youtube.com/FyASdjZE0R0"
+		"Roses - Chainsmokers ft. Rozes" : "https://www.youtube.com/embed/FyASdjZE0R0"
 		}
 		template = env.get_template('song.html')
 		result = random.choice(songs.keys())
