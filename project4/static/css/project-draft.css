@@ -15,9 +15,3 @@ input [type=button], input[type=submit], input[type=reset] {
     cursor: pointer;
 }
 
-#image1 {
-    float: left;
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-right: 20px;
-}
