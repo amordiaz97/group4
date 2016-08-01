@@ -46,7 +46,6 @@ class MainHandler(webapp2.RequestHandler):
     	template = env.get_template('project-draft.html')
     	self.response.write(template.render())
 
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
 ], debug=True)

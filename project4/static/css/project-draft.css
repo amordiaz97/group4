@@ -1,7 +1,18 @@
 
 h1 { text-align: center}
 
-h1 { font-family: "Times New Roman", Times, serif
+h1 { font-family: "Times New Roman", Times, serif;
+	font-size: 65px;
+}
+
+input [type=button], input[type=submit], input[type=reset] {
+    background-color: #FF69B4;
+    border: none;
+    color: white;
+    padding: 20px 42px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 #image1 {
