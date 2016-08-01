@@ -5,6 +5,12 @@ h1 { font-family: "Times New Roman", Times, serif;
 	font-size: 65px;
 }
 
+
+#slideshow {
+    display: block;
+    margin: 0 auto;
+}
+
 input [type=button], input[type=submit], input[type=reset] {
     background-color: #FF69B4;
     border: none;
