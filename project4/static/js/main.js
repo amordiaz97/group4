@@ -12,7 +12,11 @@ function goHome(){
 }
 
 function goToDisney(){
-	window.location.replace('/disney')
+	window.location.replace('/disney');
+}
+
+function goToFood(){
+	window.location.replace('/food');
 }
 
 function setup(){
@@ -20,6 +24,7 @@ function setup(){
 	$("#songm").click(songReplace);
 	$('#home').click(goHome);
 	$("#disney").click(goToDisney);
+	$('#food').click(goToFood);
 }
 
 $(document).ready(setup);
