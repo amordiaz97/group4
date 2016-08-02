@@ -7,9 +7,14 @@ function songReplace(){
 	window.location.replace('/song_quiz');
 }
 
+function goHome(){
+	window.location.replace('/');
+}
+
 function setup(){
 	$("#submit").click(matchingSong);
 	$("#songm").click(songReplace);
+	$('#home').click(goHome);
 }
 
 $(document).ready(setup);
