@@ -75,6 +75,7 @@ class MatchingSongHandler(webapp2.RequestHandler):
 		value = songs[result]
 		data = {'link' : value, 'result': result}
 		self.response.write(template.render(data)) #we need to add the dictionary that will pass on the variable(song) to the document
+# class MatchingFoodHandler(webapp2.Request)
 
 
 
@@ -83,5 +84,5 @@ app = webapp2.WSGIApplication([
 	('/song_quiz', SongHandler),
 	('/matching_song', MatchingSongHandler),
 	('/disney', DisneyHandler),
-	('/food', foodHandler)
+	('/food', foodHandler),
 ], debug=True)
