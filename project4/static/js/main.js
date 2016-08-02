@@ -11,10 +11,15 @@ function goHome(){
 	window.location.replace('/');
 }
 
+function goToDisney(){
+	window.location.replace('/disney')
+}
+
 function setup(){
 	$("#submit").click(matchingSong);
 	$("#songm").click(songReplace);
 	$('#home').click(goHome);
+	$("#disney").click(goToDisney);
 }
 
 $(document).ready(setup);
