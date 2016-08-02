@@ -35,6 +35,48 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <h1 class="w3-margin w3-jumbo">QUIZ YO LIFE</h1>
 <!--   <button class="w3-btn w3-padding-16 w3-large w3-margin-top">Get Started</button> -->
 </div>
+<br>
+<!-- SLIDESHOW -->
+<center>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.mySlides {display:none;}
+</style>
+</center>
+<body>
+<!-- {% include 'song.html' %}   <!-- Stephen suggested this action in case we wanted to include the same template in different files -->
+
+<head>
+
+
+
+<div id="slideshow" style="max-width:500px">
+  <img class="mySlides" src="/static/Pictures/ruready.png" style="width:140%">
+  <img class="mySlides" src="/static/Pictures/quiztoday.png" style="width:137%">
+
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<!--END OF SLIDESHOW -->
 
 <!-- Container -->
 <div class="w3-container w3-padding-64 w3-center">
