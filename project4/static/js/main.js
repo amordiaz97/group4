@@ -7,6 +7,5 @@ function setup(){
 	$("#submit").click(matchingSong);
 }
 
-
 $(document).ready(setup);
 

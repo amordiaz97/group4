@@ -55,6 +55,7 @@ class SongHandler(webapp2.RequestHandler):
 		"Never Gonna Give You Up - Rick Astley" : "https://www.youtube.com/embed/dQw4w9WgXcQ",
 		"Roses - Chainsmokers ft. Rozes" : "https://www.youtube.com/embed/FyASdjZE0R0"
 		}
+		
 		template = env.get_template('song.html')
 		result = random.choice(songs.keys())
 		value = songs[result]
