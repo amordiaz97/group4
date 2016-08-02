@@ -42,6 +42,12 @@ mark {
 
 
 .positioning{
+	position: absolute;
+	left: 406px;
+	top: 200px;
+}
+
+.positioning_text{
 	text-align: center;
 }
 
