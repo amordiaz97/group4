@@ -29,7 +29,7 @@ mark {
 	height: 150px;
 	border-radius: 150px;
 	border: solid;
-	border-color: #006699;
+	border-color: transparent;
 	
 
 }
@@ -39,7 +39,7 @@ mark {
 	height: 150px;
 	border-radius: 150px;
 	border: solid;
-	border-color: #669999;
+	border-color: transparent;
 }
 
 
