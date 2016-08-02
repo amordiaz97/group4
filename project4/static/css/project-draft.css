@@ -19,6 +19,15 @@ mark {
 
 }
 
+#submit{
+	padding-right: 0px;
+}
+
+#video{
+	position: absolute;
+	top:340px;
+	left: 460px;
+}
 
 
 .img-circle{
@@ -52,14 +61,17 @@ mark {
 }
 
 
-#video{
-	position: absolute;
-	top:340px;
-	left: 460px;
-}
 
 .text{
 	text-align: center;
+}
+
+.submit-button{
+	font-size:16pt;
+	color:white;
+	background-color:red;
+	border:2px solid red;
+	padding:15px;
 }
 
 
