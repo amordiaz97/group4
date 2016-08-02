@@ -12,6 +12,7 @@ function goHome(){
 }
 
 function goToDisney(){
+
 	window.location.replace('/disney');
 }
 
