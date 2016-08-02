@@ -13,6 +13,49 @@ mark {
    display: block;
    margin: 0 auto;
 }
+#img1{
+	position:absolute;
+	left: 250px;
+	text-align: 250px;
+
+}
 
 
 
+.img-circle{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	border: solid;
+	border-color: #006699;
+}
+
+.img-circle2{
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+	border: solid;
+	border-color: #669999;
+}
+
+
+<<<<<<< Updated upstream
+
+=======
+.positioning{
+	text-align: center;
+}
+
+
+#slideshow{
+	border: solid;
+	margin: auto;
+}
+
+
+#video{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+>>>>>>> Stashed changes
