@@ -77,6 +77,16 @@ class MatchingSongHandler(webapp2.RequestHandler):
 		self.response.write(template.render(data)) #we need to add the dictionary that will pass on the variable(song) to the document
 # class MatchingFoodHandler(webapp2.Request)
 
+class MatchingFoodHandler(webapp2.RequestHandler):
+	def get(self):
+		template = env.get_template("matching_food.html")
+		self.response.write(template.render())
+
+class MatchingDisneyHandler(webapp2.RequestHandler):
+	def get(self):
+		template = env.get_template("matching_disney.html")
+		self.response.write(template.render())
+
 
 
 app = webapp2.WSGIApplication([
@@ -85,4 +95,6 @@ app = webapp2.WSGIApplication([
 	('/matching_song', MatchingSongHandler),
 	('/disney', DisneyHandler),
 	('/food', foodHandler),
+	('/matching_food', MatchingFoodHandler),
+	('/matching_disney', MatchingDisneyHandler),
 ], debug=True)
