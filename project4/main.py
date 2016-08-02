@@ -28,11 +28,15 @@ result = { }
 
 class MainHandler(webapp2.RequestHandler):
 	def get(self):
-		template = env.get_template('project-draft.html')
+		template = env.get_template('homepage.html')
 		self.response.write(template.render())
 
+class SongHandler(webapp2.RequestHandler):
+	def get(self):
+		template = env.get_template('project-song.html')
+		self.response.write(template.render())
 
-class SongHandler(webapp2.RequestHandler):  
+class MatchingSongHandler(webapp2.RequestHandler):  
 	def get(self):
 		songs = {"Crazy in Love - Beyonce" : "https://www.youtube.com/embed/ViwtNLUqkMY" , 
 		"This Is What You Came For - Calvin Harris ft. Rihanna" : "https://www.youtube.com/embed/kOkQ4T5WO9E" , 
@@ -59,12 +63,13 @@ class SongHandler(webapp2.RequestHandler):
 		template = env.get_template('song.html')
 		result = random.choice(songs.keys())
 		value = songs[result]
-		data = {'link' : value}
+		data = {'link' : value, 'result': result}
 		self.response.write(template.render(data)) #we need to add the dictionary that will pass on the variable(song) to the document
 
 
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
-	('/matching_song', SongHandler)
+	('/song_quiz', SongHandler),
+	('/matching_song', MatchingSongHandler)
 ], debug=True)

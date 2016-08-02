@@ -13,13 +13,16 @@
 <html>
 
 <head>
-
 <title> Quiz Yo Life </title>
 
 <h1 style="color:#6699ff;"> Quiz Yo Life </h1>
 
+<<<<<<< Updated upstream:project4/templates/project-draft.html
 <!-- SLIDESHOW -->
 <center>
+=======
+SLIDESHOW
+>>>>>>> Stashed changes:project4/templates/project-song.html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -27,7 +30,7 @@
 </style>
 </center>
 <body>
-
+<!-- {% include 'song.html' %}   <!-- Stephen suggested this action in case we wanted to include the same template in different files -->
 
 <head>
 
@@ -62,9 +65,9 @@ function carousel() {
 
 </head>
 
-<h2 style="color:#bf40bf;""> <i class="em em-musical_score"></i> Which song matches YOUR personality? <i class="em em-musical_note"></i> </h2>
+<h2 style="color:#bf40bf;""> <i class="em em-musical_score"></i> <strong>Which song matches YOUR personality?</strong> <i class="em em-musical_note"></i> </h2>
 
-<body>
+<body class = "positioning">
 
 <!--Question 1 -->
 <form>
@@ -74,54 +77,56 @@ function carousel() {
 <br>
 <!--Question 2 -->
  <h3> 2. Birthday month? <i class="em em-balloon"></i> <br> </h3>
-  <input type="radio" name="birthdaymonth" value="January" > January<br>
 
-   <img type="image" src="https://stilllearningsomethingnew.files.wordpress.com/2014/12/january_3499c.jpg" alt="janpic" height="70" width="140"> <br>
+  <input type="radio" name="birthdaymonth" value="January"> <p id= "text"> January</p><br>
+
+
+   <img class = "img-circle"  type="image" src="https://stilllearningsomethingnew.files.wordpress.com/2014/12/january_3499c.jpg" alt="janpic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="February"> February<br>
 
-    <img id = "image2" type="image" src="http://valleverdechildrenscenter.org/wp-content/uploads/2015/11/February.png" alt="febpic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="http://valleverdechildrenscenter.org/wp-content/uploads/2015/11/February.png" alt="febpic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="March" > March<br>
 
-    <img id ="image3" type="image" src="http://www.susansdailydose-2012.com/resources/JANUARY/march-saint-patricks-luck.png?timestamp=1390152594054" alt="marchpic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="http://www.susansdailydose-2012.com/resources/JANUARY/march-saint-patricks-luck.png?timestamp=1390152594054" alt="marchpic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="April"> April<br>
 
-    <img id = "image4" type="image" src="http://oespto.org/wp/wp-content/uploads/2012/08/month-of-april-rain.png" alt="aprilpic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="http://oespto.org/wp/wp-content/uploads/2012/08/month-of-april-rain.png" alt="aprilpic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="May" =""> May<br>
 
-  <img  id = "image1" type="image" src= "http://clipartsign.com/upload/2016/01/18/pin-by-carole-musto-on-may-calendar-clip-art-and-art.gif" alt="maypic" height="70" width="140"> <br>
+  <img  class = "img-circle" type="image" src= "http://clipartsign.com/upload/2016/01/18/pin-by-carole-musto-on-may-calendar-clip-art-and-art.gif" alt="maypic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="June"> June<br>
 
-    <img id = image2" type="image" src="http://topimages.org/wp-content/uploads/2015/05/june-clip-art-9.png" alt="junepic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="http://topimages.org/wp-content/uploads/2015/05/june-clip-art-9.png" alt="junepic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="July" > July<br>
 
-    <img id = "image3" type="image" src="http://76.162.73.134/images/patriotic-july.png" alt="julypic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="http://76.162.73.134/images/patriotic-july.png" alt="julypic" height="70" width="140"> <br>
 
 
   <input type="radio" name="birthdaymonth" value="August"> August<br>
 
-    <img id = "image4" type="image" src="http://www.clipartkid.com/images/31/august-clip-art-free-cliparts-co-edS20l-clipart.png" alt="augpic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="http://www.clipartkid.com/images/31/august-clip-art-free-cliparts-co-edS20l-clipart.png" alt="augpic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="September" > September<br>
 
-   <img  id = "image1" type="image" src="/static/Pictures/september.png" alt="seppic" height="70" width="140"> <br>
+   <img  class = "img-circle" type="image" src="/static/Pictures/september.png" alt="seppic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="October"> October<br>
 
-    <img id = "image2" type="image" src="http://www.clipartbest.com/cliparts/RTA/yBe/RTAyBeEzc.png" alt="octpic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="http://www.clipartbest.com/cliparts/RTA/yBe/RTAyBeEzc.png" alt="octpic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="November" > November<br>
 
-    <img id = "image3" type="image" src="/static/Pictures/november.png" alt="novpic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="/static/Pictures/november.png" alt="novpic" height="70" width="140"> <br>
 
   <input type="radio" name="birthdaymonth" value="December"> December<br>
 
-    <img id = "image4" type="image" src="/static/Pictures/december.png" alt="decpic" height="70" width="140"> <br>
+    <img class = "img-circle" type="image" src="/static/Pictures/december.png" alt="decpic" height="70" width="140"> <br>
 
   <br>
 
@@ -134,22 +139,38 @@ function carousel() {
 
 <input type="radio" name="wierdwords" value="moist" > Moist<br>
 
+<<<<<<< Updated upstream:project4/templates/project-draft.html
    <img id = "image" type="image" src="https://i.ytimg.com/vi/4ETfxhN8FR0/maxresdefault.jpg" alt="noistpic" height="140" width="190"> <br>
 
 <input type="radio" name="wierdwords" value="ointment" > Ointment<br>
 
   <img id = "image" type="image" src="http://s2.quickmeme.com/img/ce/ce751ad29f53864df6abcd1d3e9f5e0dcd84d6fa407367024ed30f46db6041ce.jpg" alt="ointpic" height="160" width="190"> <br>
+=======
+   <img id = "image" class = "img-circle2" type="image" src="https://i.ytimg.com/vi/4ETfxhN8FR0/maxresdefault.jpg" alt="noistpic" height="100" width="170"> <br>
+
+<input type="radio" name="wierdwords" value="ointment" > Ointment<br>
+
+  <img id = "image" class = "img-circle2" type="image" src="http://s2.quickmeme.com/img/ce/ce751ad29f53864df6abcd1d3e9f5e0dcd84d6fa407367024ed30f46db6041ce.jpg" alt="ointpic" height="120" width="170"> <br>
+>>>>>>> Stashed changes:project4/templates/project-song.html
 
 
 
 <input type="radio" name="wierdwords" value="yeast" > Yeast<br>
 
+<<<<<<< Updated upstream:project4/templates/project-draft.html
   <img id = "image" type="image" src="http://cdn.funnyisms.com/9815f459-1849-4199-bc75-784185cb48f3.jpg" alt="yeastpic" height="170" width="190"> <br>
 
 <input type="radio" name="wierdwords" value="sizzle" > Sizzle<br>
 
   <img id = "image" type="image" src="http://www.obeythepurebreed.com/images/fo_sizzle_baby.gif" alt="yeastpic" height="170" width="190"> <br>
 
+=======
+  <img id = "image" class = "img-circle2" type="image" src="http://cdn.funnyisms.com/9815f459-1849-4199-bc75-784185cb48f3.jpg" alt="yeastpic" height="150" width="170"> <br>
+
+<input type="radio" name="wierdwords" value="sizzle" > Sizzle<br>
+
+  <img id = "image" class = "img-circle2" type="image" src="http://www.obeythepurebreed.com/images/fo_sizzle_baby.gif" alt="yeastpic" height="150" width="170"> <br>
+>>>>>>> Stashed changes:project4/templates/project-song.html
 
 
 
@@ -218,5 +239,9 @@ function carousel() {
 
   </input>
   </body>
+<<<<<<< Updated upstream:project4/templates/project-draft.html
 
 
+=======
+</form>
+>>>>>>> Stashed changes:project4/templates/project-song.html
