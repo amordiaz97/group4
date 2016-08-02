@@ -41,6 +41,11 @@ class DisneyHandler(webapp2.RequestHandler):
 		template = env.get_template('disney.html')
 		self.response.write(template.render())
 
+class foodHandler(webapp2.RequestHandler):
+	def get(self):
+		template = env.get_template('food.html')
+		self.response.write(template.render())
+
 class MatchingSongHandler(webapp2.RequestHandler):  
 	def get(self):
 		songs = {"Crazy in Love - Beyonce" : "https://www.youtube.com/embed/ViwtNLUqkMY" , 
@@ -78,4 +83,5 @@ app = webapp2.WSGIApplication([
 	('/song_quiz', SongHandler),
 	('/matching_song', MatchingSongHandler),
 	('/disney', DisneyHandler),
+	('/food', foodHandler)
 ], debug=True)
