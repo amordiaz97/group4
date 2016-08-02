@@ -1,9 +1,5 @@
-function matchingSong(){
-	alert('Click ok to reveal your song: ');
-	window.location.replace("/matching_song");
-}
 
-function songReplace(){
+function goToSong(){
 	window.location.replace('/song_quiz');
 }
 
@@ -20,18 +16,13 @@ function goToFood(){
 	window.location.replace('/food');
 }
 
-function matchingDisney(){
-	alert('Click ok to reveal your Disney character ');
-	window.location.replace('/matching_disney');
 
-}
+
 function setup(){
-	$("#submit").click(matchingSong);
-	$("#songm").click(songReplace);
+	$("#songm").click(goToSong);
 	$('#home').click(goHome);
 	$("#disney").click(goToDisney);
 	$('#food').click(goToFood);
-	$("#submit_disney").click(matchingDisney);
 }
 
 $(document).ready(setup);
