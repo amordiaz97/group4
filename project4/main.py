@@ -49,8 +49,12 @@ class DisneyHandler(webapp2.RequestHandler):
 		"Mickey":"mickey.jpeg",
 		"Minnie":"minnie.jpeg",
 		"Cinderella":"cinderella.jpg",
-		"Tarzan":"tarzan.jpg"}
+		"Tarzan":"tarzan.jpg"
+		}
+		template = env.get_template('disney.html')
+		self.response.write(template.render())
 
+		
 
 class foodHandler(webapp2.RequestHandler):
 	def get(self):
