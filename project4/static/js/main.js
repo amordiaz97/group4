@@ -4,7 +4,7 @@ function goToSong(){
 }
 
 function goHome(){
-	window.location.replace('/');
+	window.location.replace('/home');
 }
 
 function goToDisney(){
