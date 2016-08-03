@@ -38,8 +38,19 @@ class SongHandler(webapp2.RequestHandler):
 
 class DisneyHandler(webapp2.RequestHandler):
 	def get(self):
-		template = env.get_template('disney.html')
-		self.response.write(template.render())
+		characters = {"Ariel" : "ariel.png",
+		"Hiro" :"h.jpeg",
+		"WALL-E": "walle.jpeg",
+		"Belle" : "download.jpeg",
+		"Aladdin":"aladdin.jpeg",
+		"Genie":"genie.jpeg",
+		"Pumba":"pumba.jpeg",
+		"Rapunzel":"rapunzel.jpeg",
+		"Mickey":"mickey.jpeg",
+		"Minnie":"minnie.jpeg",
+		"Cinderella":"cinderella.jpg",
+		"Tarzan":"tarzan.jpg"}
+
 
 class foodHandler(webapp2.RequestHandler):
 	def get(self):
@@ -69,8 +80,6 @@ class MatchingSongHandler(webapp2.RequestHandler):
 		"Never Gonna Give You Up - Rick Astley" : "https://www.youtube.com/embed/dQw4w9WgXcQ",
 		"Roses - Chainsmokers ft. Rozes" : "https://www.youtube.com/embed/FyASdjZE0R0"
 		}
-
-		# quiz_response = self.request.get("")
 		
 		template = env.get_template('song.html')
 		result = random.choice(songs.keys())
