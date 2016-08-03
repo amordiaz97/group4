@@ -63,7 +63,7 @@ class foodHandler(webapp2.RequestHandler):
 
 class MatchingFoodHandler(webapp2.RequestHandler):
 	def post (self):
-			template = env.get_template('food.html')
+			template = env.get_template('matching_food.html')
 			foods = { "Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate." : "kiwi.jpg", 
 			"Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. " : "lemon.jpg", 
 			"Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. ": "chocolate.jpg",
@@ -73,9 +73,21 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 			"Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon." :" banana.jpg",
 			"Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. " : "shrimp.jpg",
 			"Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with." : "bread.jpg",
-			"Bread: You have your own distinctive and taste merits. You are full of fun and you are easy to get along with." : "bread.jpg",
 			"Spaghetti: You are very genuine. Your have a very warm and comforting personality.":  "spaghetti.jpg"
 		}
+			food_points = {
+				"Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate." : 0,
+				"Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. " : 0,
+				"Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. " : 0,
+				"Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. " : 0,
+				"Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another." : 0,
+				"Sushi: You have a refined character that contains an excessive amount of style and poise." : 0,
+				"Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon." : 0,
+				"Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. " : 0,
+				"No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz" : 0,
+				"Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with." : 0,
+				"Spaghetti: You are very genuine. Your have a very warm and comforting personality." : 0
+			}
 
 class MatchingSongHandler(webapp2.RequestHandler):
 	def post(self):
