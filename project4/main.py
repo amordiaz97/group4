@@ -61,6 +61,21 @@ class foodHandler(webapp2.RequestHandler):
 		template = env.get_template('food.html')
 		self.response.write(template.render())
 
+class MatchingFoodHandler(webapp2.RequestHandler):
+	def post (self):
+		template = env.get_template('food.html')
+		foods = { "Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood" : "kiwi.jpg", 
+		"Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. " : "lemon.jpg", 
+		"Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. ” : “chocolate.jpg”,
+	"Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. " : "potatoes.jpg", 
+	"Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another." : "pizzacrust.jpg",
+	"Bread: You have your own distinctive and taste merits whether you’re a baguette, sourdough, naan, or even a rainbow-colored bagel. You are full of fun and you are easy to get along with.” : “bread.jpg”,
+	"Sushi: You have a refined character that contains an excessive amount of style and poise." : "sushi.jpg",
+	"Spaghetti: You are very genuine. You warm and comforting personality makes you everybody’s best friend.":  "spaghetti.jpg", 
+	"Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon." :" banana.jpg"
+
+}
+
 class MatchingSongHandler(webapp2.RequestHandler):
 	def post(self):
 			template = env.get_template('song.html')
