@@ -23,7 +23,7 @@ import logging
 
 
 env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
-result = { }
+
 
 
 
@@ -62,19 +62,20 @@ class foodHandler(webapp2.RequestHandler):
         self.response.write(template.render())
 
 class MatchingFoodHandler(webapp2.RequestHandler):
-	def post (self):
+	def post(self):
 			template = env.get_template('matching_food.html')
-			foods = { "Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate." : "kiwi.jpg", 
-			"Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. " : "lemon.jpg", 
-			"Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. ": "chocolate.jpg",
-			"Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. " : "potatoes.jpg", 
-			"Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another." : "pizzacrust.jpg",
-			"Sushi: You have a refined character that contains an excessive amount of style and poise." : "sushi.jpg",
-			"Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon." :" banana.jpg",
-			"Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. " : "shrimp.jpg",
-			"Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with." : "bread.jpg",
-			"Spaghetti: You are very genuine. Your have a very warm and comforting personality.":  "spaghetti.jpg"
-		}
+			pic_link = " "
+			foods = { "Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate." : "/static/Pictures/foodpics/kiwi.jpg", 
+			"Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. " : "/static/Pictures/foodpics/lemon.jpg", 
+			"Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. ": "/static/Pictures/foodpics/coco.jpg",
+			"Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. " : "/static/Pictures/foodpics/potatoes.jpg", 
+			"Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another." : "/static/Pictures/foodpics/pizzacrust.jpg",
+			"Sushi: You have a refined character that contains an excessive amount of style and poise." : "/static/Pictures/foodpics/sushi.jpg",
+			"Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon." :"/static/Pictures/foodpics/banana.jpg",
+			"Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. " : "/static/Pictures/foodpics/shrimp.jpg",
+			"Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with." : "/static/Pictures/foodpics/bread.jpg",
+			"Spaghetti: You are very genuine. Your have a very warm and comforting personality.":  "/static/Pictures/foodpics/spaghetti.jpg"
+			}
 			food_points = {
 				"Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate." : 0,
 				"Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. " : 0,
@@ -84,10 +85,224 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 				"Sushi: You have a refined character that contains an excessive amount of style and poise." : 0,
 				"Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon." : 0,
 				"Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. " : 0,
-				"No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz" : 0,
 				"Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with." : 0,
 				"Spaghetti: You are very genuine. Your have a very warm and comforting personality." : 0
 			}
+			firstName = self.request.get('letter')
+			pizza = self.request.get('pizzatop')
+			chicken = self.request.get('chxtype')
+			herb = self.request.get("herbguess")
+			rather = self.request.get('ratherpick')
+			halloween = self.request.get('fruit')
+			hungry_yes_no = self.request.get('feeling')
+			favorite_place = self.request.get('place2eat')
+
+#comparing pizza responses
+			if pizza == 'sausage':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
+			elif pizza == 'pepperoni':
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
+			elif pizza == 'mushroom':
+				 food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+				 food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+			elif pizza == 'olives':
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+			elif pizza == 'chicken':
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 1
+#comparing chicken responses
+			if chicken == 'chxtenders':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 1
+			elif chicken == 'chxnugs':
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
+			elif chicken == 'friedchx':
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+			elif chicken == 'rostchx':
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+			elif chicken == 'nochx':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] -= 1
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] -= 1
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] -= 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] -= 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] -= 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] -= 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] -= 1
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] -= 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] -= 1
+#comparing herbs starts here
+			if herb == 'christmastree':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
+			else:
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] -= 1
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] -= 1
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] -= 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] -= 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] -= 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] -= 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] -= 1
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] -= 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] -= 1
+#comparing rather starts here
+			if rather == 'drinkall':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
+			elif rather == 'share':
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 1
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
+#comparing hallowing fruit 
+			if halloween == 'strawberry':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
+			elif halloween == 'grape':
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+			elif halloween == 'blueberry':
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 1
+			elif halloween == 'orange':
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
+			elif halloween == 'banana':
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 2
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+			elif halloween == 'watermelon':
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+#comparing hungry ?
+			if hungry_yes_no == 'sad':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 2
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 2
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 2
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 2
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 2
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 2
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 2
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 2
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 2
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 2
+			elif hungry_yes_no == 'hungry':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
+			elif hungry_yes_no == "crazy":
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] -= 1
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] -= 1
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] -= 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] -= 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] -= 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] -= 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] -= 1
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] -= 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] -= 1
+#comparing favorite_place
+			if favorite_place == 'KFC':
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+			elif favorite_place == 'mcdonalds':
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 1
+			elif favorite_place == '711':
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 2
+			elif favorite_place == 'chipotle':
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 2
+			elif favorite_place == 'pizzahut':
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+			elif favorite_place == 'chicfila':
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+			elif favorite_place == 'dominos':
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+			elif favorite_place == 'tacobell':
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+			elif favorite_place == 'pandaexpress':
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 2
+			elif favorite_place == "wholefoods":
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+
+			maxi = 0
+			for n in food_points:
+				if food_points[n] > maxi:
+					maxi = food_points[n]
+#matching food item code below
+			if maxi == food_points["Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate."]:
+				food_match = foods["Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate."]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/kiwi.jpg":
+						pic_link = key
+			elif maxi == food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "]:
+				food_match = foods["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/lemon.jpg":
+						pic_link = key
+			elif maxi == food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "]:
+				food_match = foods["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/coco.jpg":
+						pic_link = key	
+			elif maxi == food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "]:
+				food_match =foods["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/potatoes.jpg":
+						pic_link = key
+			elif maxi == food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."]:
+				food_match = foods["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/pizzacrust.jpg":
+						pic_link = key
+			elif maxi == food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."]:
+				food_match = foods["Sushi: You have a refined character that contains an excessive amount of style and poise."]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/sushi.jpg":
+						pic_link = key			
+			elif maxi == food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."]:
+				food_match= foods["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/banana.jpg":
+						pic_link = key
+			elif maxi == food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "]:
+				food_match = foods["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/shrimp.jpg":
+						pic_link = key
+			elif maxi == food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."]:
+				food_match = foods["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/bread.jpg":
+						pic_link = key
+			elif maxi == food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."]:
+				food_match =foods["Spaghetti: You are very genuine. Your have a very warm and comforting personality."]
+				for key,value in foods.iteritems():
+					if value == "/static/Pictures/foodpics/spaghetti.jpg":
+						pic_link = key
+			
+			data = {'food': pic_link, 'picture': food_match}
+			self.response.write(template.render(data))
 
 class MatchingSongHandler(webapp2.RequestHandler):
 	def post(self):
@@ -474,14 +689,6 @@ class MatchingSongHandler(webapp2.RequestHandler):
 			data = {"link": val, 'result': result}
 			self.response.write(template.render(data))
 
-
-
-   
-class MatchingFoodHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template("matching_food.html")
-        self.response.write(template.render())
-
 class MatchingDisneyHandler(webapp2.RequestHandler):
     def get(self):
 
@@ -500,6 +707,7 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
         	"Tarzan":"tarzan.jpg"
         }
 
+<<<<<<< HEAD
         character_points = {"Ariel" : 0,
         	"Hiro" : 0,
         	"WALL-E": 0,
@@ -549,6 +757,24 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
 				song_points["WALL-E"] +=1
 
         	self.response.write(template.render())
+=======
+        characters_points = {"Ariel": 0,
+						  "Hiro": 0,
+						  "WALL-E": 0,
+						  "Belle": 0,
+						  "Aladdin": 0,
+						  "Genie":0,
+						  "Pumba":0,
+						  "Rapunzel": 0,
+						  "Mickey": 0,
+						  "Minnie": 0,
+						  "Cinderella": 0,
+						  "Tarzan": 0
+						 }
+
+        template = env.get_template("matching_disney.html")
+        self.response.write(template.render())
+>>>>>>> origin/master
 
 
 

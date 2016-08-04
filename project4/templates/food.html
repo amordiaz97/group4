@@ -46,12 +46,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <body class = "positioning_text">
 
-<form action="/matching_food" method="get">
-
+<form action="/matching_food" method="post">
 <label>
-
-<h3> 
-
 <h3> 1. What is your name? </h3>
 <input type= "text" name="letter" ><br>
 <!-- Question 2-->
@@ -77,7 +73,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <input type="radio" name="chxtype" value="friedchx"> Fried Chicken 
 
 <img class = "img-circle" type="image" src="http://www.seriouseats.com/images/20120112-popeyes-refried-chicken-6.jpg" alt="chxpic2" height="70" width="140"> 
-<input type="radio" name="chxtype"> Rotisserie Chicken 
+<input type="radio" name="chxtype" value = "rostchx"> Rotisserie Chicken 
 <img class = "img-circle" type="image" src="http://shanghai.talkmagazines.cn/sites/talkmagazines.cn/files/imagecache/col1_full/RoastedChicken_Standalone.jpg" alt="chxpic2" height="70" width="140"> 
 <br>
 <br>
@@ -105,16 +101,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!--SONG COPY -->
 <!-- Question 4 -->
 
-<h3> 4. Would you rather...? </h3>
+<h3> 5. Would you rather...? </h3>
 
-<input type="radio" name="ratherpick" > Drink everything out of a baby bottle for life <i class="em em-baby_bottle"></i> <br>
+<input type="radio" name="ratherpick" value = "drinkall"> Drink everything out of a baby bottle for life <i class="em em-baby_bottle"></i> <br>
 
  <h3> OR </h3> <br>
-<input type="radio" name="ratherpick" > share every meal with a monkey <i class="em em-monkey"></i><br>
+<input type="radio" name="ratherpick" value = 'share' > share every meal with a monkey <i class="em em-monkey"></i><br>
 
 
 <!--Question 5 -->
-<h3>5. What fruit would you dress as for Halloween? <br> </h3>
+<h3>6. What fruit would you dress as for Halloween? <br> </h3>
 
 <input type="radio" name="fruit" value="strawberry" > Strawberry 
 <img class = "img-circle"  type="image" src="http://www.halloweenhero.com/image-files/strawberry-costume.jpg" alt="strawberrypic" height="250" width="190"> 
@@ -135,32 +131,32 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <img class = "img-circle"  type="image" src="http://blog.findcostume.com/wp-content/uploads/2012/02/yhst-17175227365559_2194_149180474.gif" alt="watermelonpic" height="250" width="190"> <br>
 
 <!--Question 6 -->
-<h3> 6. Feeling hungry yet? <br> </h3>
+<h3> 7. Feeling hungry yet? <br> </h3>
 
 <img id = "image" class= "img" type="image" src= "http://66.media.tumblr.com/9f6fa1abba2216887a154582b088aa6a/tumblr_nklro5cumE1rvhqlvo1_500.gif" alt="herbpic" height="200" width="300"> <br>
 
-<input type="radio" name="hungry" value="sad" > Yes <br>
+<input type="radio" name="feeling" value="sad" > Yes <br>
 
 
 <input type="radio" name="feeling" value="hungry" > No <br>
 
 <input type="radio" name="feeling" value="crazy" > does not apply to me <br>
-
+<!-- I am a little bit confused about the line above, which names are we actually using for each value -->
 
 
 <!--Question 7 -->
 
-<h3> 7. Your favorite place to grab a quick bite to eat? <br> </h3>
+<h3> 8. Your favorite place to grab a quick bite to eat? <br> </h3>
 
 <input type="radio" name="place2eat" value="KFC" > <img class = "img-circle"  type="image" src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/KFC_logo.svg/1024px-KFC_logo.svg.png" height="250" width="190"> 
 
-<input type="radio" name="place2eat" value="mcdonalds" > <img class = "img-circle"  type="image" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Whole_Foods_Market_logo.svg/1280px-Whole_Foods_Market_logo.svg.png" alt="wholefoods" height="250" width="190">
+<input type="radio" name="place2eat" value="wholefoods" > <img class = "img-circle"  type="image" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Whole_Foods_Market_logo.svg/1280px-Whole_Foods_Market_logo.svg.png" alt="wholefoods" height="250" width="190">
 
 <input type="radio" name="place2eat" value="711" > <img class = "img-circle"  type="image" src="https://lh5.ggpht.com/ybomDVOGzBDt2gaYXglRxICoKih95zFz_oPvRJSvZCDe5gXeKbib9rtOdV8sBSpmA6o=w300" height="250" width="190">
 
 <input type="radio" name="place2eat" value="chipotle" > <img class = "img-circle"  type="image" src="https://pbs.twimg.com/profile_images/616043541815386112/i7FxHNpE.jpg" height="250" width="190"> <br>
 
-<input type="radio" name="place2eat" value="mcdonalds" > <img class = "img-circle"  type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Mcdonalds-90s-logo.svg/2000px-Mcdonalds-90s-logo.svg.png" height="250" width="190">
+<input type="radio" name="place2eat" value="mcdonalds" > <img class = "img-circle"  type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Mcdonalds-90s-logo.svg/2000px-Mcdonalds-90s-logo.svg.png" height="250" width="190"><!-- this is repeated above-->
 
 <input type="radio" name="place2eat" value="pizzahut" > <img class = "img-circle"  type="image" src="http://discoversumterfl.com/www-2014-v2/wp-content/uploads/2013/10/PRN10-PIZZA-HUT-LOGO-1y-4-1-1-1High.jpg" height="250" width="190">
 
@@ -174,7 +170,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <br>
 
-</form>
+
    <input id = "submit_food" class = "submit-button" type="submit" value="Submit">
 
   </input>
