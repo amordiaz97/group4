@@ -484,22 +484,71 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 
 class MatchingDisneyHandler(webapp2.RequestHandler):
     def get(self):
+
+    	template = env.get_template("matching_disney.html")
         characters = {"Ariel" : "ariel.png",
-        "Hiro" :"h.jpeg",
-        "WALL-E": "walle.jpeg",
-        "Belle" : "download.jpeg",
-        "Aladdin":"aladdin.jpeg",
-        "Genie":"genie.jpeg",
-        "Pumba":"pumba.jpeg",
-        "Rapunzel":"rapunzel.jpeg",
-        "Mickey":"mickey.jpeg",
-        "Minnie":"minnie.jpeg",
-        "Cinderella":"cinderella.jpg",
-        "Tarzan":"tarzan.jpg"
+        	"Hiro" :"h.jpeg",
+        	"WALL-E": "walle.jpeg",
+        	"Belle" : "download.jpeg",
+        	"Aladdin":"aladdin.jpeg",
+        	"Genie":"genie.jpeg",
+        	"Pumba":"pumba.jpeg",
+        	"Rapunzel":"rapunzel.jpeg",
+        	"Mickey":"mickey.jpeg",
+        	"Minnie":"minnie.jpeg",
+        	"Cinderella":"cinderella.jpg",
+        	"Tarzan":"tarzan.jpg"
         }
 
-        template = env.get_template("matching_disney.html")
-        self.response.write(template.render())
+        character_points = {"Ariel" : 0,
+        	"Hiro" : 0,
+        	"WALL-E": 0,
+        	"Belle" : 0,
+        	"Aladdin": 0,
+        	"Genie": 0,
+        	"Pumba": 0,
+        	"Rapunzel": 0,
+        	"Mickey": 0,
+        	"Minnie": 0,
+        	"Cinderella": 0,
+        	"Tarzan": 0
+        }
+
+        firstName = self.request.get('fandlname')
+		place = self.request.get('place')
+		color = self.request.get('color')
+		num = self.request.get('picknum')
+		food = self.request.get('food')
+		date = self.request.get('prom')
+		power = self.request.get('superpower')
+		weapon = self.request.get('item')
+		weather = self.request.get('climate')
+		accessory = self.request.get('access')
+
+
+# using points to determine your matching song starts right here
+			if firstName.lower() == 'ariel' or firstName.lower() == 'eric': 
+				character_points["Ariel"] += 1
+			elif firstName.lower() == 'hiro':
+				character_points['Hiro'] +=1
+			elif firstName.lower() == 'aladdin' or firstName.lower() == 'jasmin' or firstName.lower() == "ali":
+				character_points['Aladdin'] +=1
+			elif firstName.lower() == 'timon':
+				character_points["Pumba"] +=1
+			elif firstName.lower() == 'rapunzel':
+				character_points["Rapunzel"] +=1
+			elif firstName.lower() == 'michael' or firstName.lower() == "mickey" or firstName.lower() == "mouse":
+				character_points["Mickey"] +=1
+			elif firstName.lower() == 'minnie':
+				character_points['Minnie'] +=1
+			elif firstName.lower() == 'cindy' or firstName.lower() == "cinderella":
+				character_points['Cinderella'] +=1
+			elif firstName.lower() == 'tarzan':
+				character_points['Tarzan'] +=1
+			elif firstName.lower() == 'walle' or firstName.lower() == "william" or firstName.lower() == "will":
+				song_points["WALL-E"] +=1
+
+        	self.response.write(template.render())
 
 
 
