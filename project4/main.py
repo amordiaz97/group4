@@ -195,16 +195,16 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
 #comparing hungry ?
 			if hungry_yes_no == 'sad':
-				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 2
-				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 2
-				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 2
-				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 2
-				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 2
-				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 2
-				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 2
-				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 2
-				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 2
-				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 2
+				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
+				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
+				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are french, baked, or mashed. "] += 1
+				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
+				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
+				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 1
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
+				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
 			elif hungry_yes_no == 'hungry':
 				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
 				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
@@ -228,9 +228,9 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 			elif favorite_place == 'mcdonalds':
 				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 1
 			elif favorite_place == '711':
-				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 2
+				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
 			elif favorite_place == 'chipotle':
-				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 2
+				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
 			elif favorite_place == 'pizzahut':
 				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 1
 			elif favorite_place == 'chicfila':
@@ -241,7 +241,7 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 			elif favorite_place == 'tacobell':
 				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
 			elif favorite_place == 'pandaexpress':
-				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 2
+				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
 			elif favorite_place == "wholefoods":
 				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 1
 
@@ -690,21 +690,20 @@ class MatchingSongHandler(webapp2.RequestHandler):
 			self.response.write(template.render(data))
 
 class MatchingDisneyHandler(webapp2.RequestHandler):
-    def get(self):
-
+    def post(self):
 		template = env.get_template("matching_disney.html")
-		characters = {"Ariel" : "ariel.png",
-					"Hiro" :"h.jpeg",
-					"WALL-E": "walle.jpeg",
-					"Belle" : "download.jpeg",
-					"Aladdin":"aladdin.jpeg",
-					"Genie":"genie.jpeg",
-					"Pumba":"pumba.jpeg",
-					"Rapunzel":"rapunzel.jpeg",
-					"Mickey":"mickey.jpeg",
-					"Minnie":"minnie.jpeg",
-					"Cinderella":"cinderella.jpg",
-					"Tarzan":"tarzan.jpg"
+		characters = {"Ariel" : "/static/Pictures/ariel.png",
+					"Hiro" :"/static/Pictures/h.jpeg",
+					"WALL-E": "/static/Pictures/walle.jpeg",
+					"Belle" : "/static/Pictures/download.jpeg",
+					"Aladdin":"/static/Pictures/aladdin.jpeg",
+					"Genie":"/static/Pictures/genie.jpeg",
+					"Pumba":"/static/Pictures/pumba.jpeg",
+					"Rapunzel":"/static/Pictures/rapunzel.jpeg",
+					"Mickey":"/static/Pictures/mickey.jpeg",
+					"Minnie":"/static/Pictures/minnie.jpeg",
+					"Cinderella":"/static/Pictures/cinderella.jpg",
+					"Tarzan":"/static/Pictures/tarzan.jpg"
 		}
 
 		character_points = {"Ariel" : 0,
@@ -754,9 +753,257 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
 			character_points['Tarzan'] +=1
 		elif firstName.lower() == 'walle' or firstName.lower() == "william" or firstName.lower() == "will":
 				song_points["WALL-E"] +=1
+# comparing place starts here
+		if place == 'Sea':
+			character_points["Ariel"] +=1
+			character_points["Tarzan"] +=1
+			character_points["Aladdin"] +=1
+			character_points["Genie"] +=1
+			character_points["Pumba"] +=1
+		elif place == 'Ice Castle':
+			character_points["Cinderella"] +=1
+			character_points["Mickey"] +=1
+			character_points["Minnie"] +=1
+			character_points["WALL-E"] +=1
+		elif place == 'Library':
+			character_points["Belle"] +=1
+			character_points["Hiro"] +=1
+		elif place == 'A Hidden Tower':
+			character_points["Rapunzel"] +=1
+# comparing color starts here
+		if color == "Pink":
+			character_points["Rapunzel"] +=1
+			character_points["Pumba"] +=1
+		elif color == "Blue":
+			character_points["Cinderella"] +=1
+			character_points["Genie"] +=1
+			character_points["Aladdin"] +=1
+			character_points["Ariel"] +=1
+		elif color == "green":
+			character_points["Tarzan"] +=1
+			character_points["Belle"] +=1
+		elif color == "red":
+			character_points["Mickey"] +=1
+			character_points["Minnie"] +=1
+			character_points["Hiro"] +=1
+			character_points["WALL-E"] +=1
+#comparing numbers starts here
+		if num == '4':
+			character_points["Hiro"] +=8
+			character_points["Ariel"] +=8
+		elif num == '8':
+			character_points["WALL-E"] +=4
+			character_points["Belle"] +=4
+		elif num == '11':
+			character_points["Aladdin"] +=1
+			character_points["Cinderella"] +=1
+		elif num == '7':
+			character_points["Genie"] +=6
+			character_points["Pumba"] +=6
+		elif num == '6':
+			character_points["Rapunzel"] +=7
+			character_points["Mickey"] +=7
+		elif num == '1':
+			character_points["Minnie"] +=11
+			character_points["Tarzan"] +=11
+#comparing food starts here
+		if food == 'pizza':
+			character_points["Ariel"] +=1
+			character_points["Hiro"] +=1
+			character_points["WALL-E"] +=1
+		elif food == 'salad':
+			character_points["Genie"] +=1
+			character_points["Aladdin"] +=1
+			character_points["Pumba"] +=1
+		elif food == 'macaroon':
+			character_points["Rapunzel"] +=1
+			character_points["Mickey"] +=1
+			character_points["Minnie"] +=1
+		elif food == 'waffles':
+			character_points["Tarzan"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Belle"] +=1
+#comparing date starts here
+		if date == 'Ariel':
+			character_points["Ariel"] +=1
+			character_points["Hiro"] +=1
+			character_points["WALL-E"] +=1
+			character_points["Genie"] +=1
+			character_points["Aladdin"] +=1
+			character_points["Pumba"] +=1
+			character_points["Mickey"] +=1
+			character_points["Tarzan"] +=1
+		elif date == 'Beast':
+			character_points["Ariel"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Rapunzel"] +=1
+			character_points["Belle"] +=1
+			character_points["Minnie"] +=1
+		elif date == 'BabyMax':
+			character_points["Ariel"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Rapunzel"] +=1
+			character_points["Belle"] +=1
+			character_points["Minnie"] +=1
+		elif date == 'Aladdin':
+			character_points["Ariel"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Rapunzel"] +=1
+			character_points["Belle"] +=1
+			character_points["Minnie"] +=1
+		elif date == 'Rapunzel':
+			character_points["Ariel"] +=1
+			character_points["Hiro"] +=1
+			character_points["WALL-E"] +=1
+			character_points["Genie"] +=1
+			character_points["Aladdin"] +=1
+			character_points["Pumba"] +=1
+			character_points["Mickey"] +=1
+			character_points["Tarzan"] +=1
+#comparing powers
+		if power == 'flying':
+			character_points["Rapunzel"] +=1
+			character_points["Pumba"] +=1
+			character_points["Genie"] +=1
+			character_points["Aladdin"] +=1
+		elif power == 'Teletransportation':
+			character_points["Ariel"] +=1
+			character_points["WALL-E"] +=1
+		elif power == 'Invisble':
+			character_points["Ariel"] +=1
+			character_points["Mickey"] +=1
+			character_points["WALL-E"] +=1
+		elif power == 'SuperhumanSpeed':
+			character_points["Tarzan"] +=1
+		elif power == 'strength':
+			character_points["Belle"] +=1
+			character_points["Minnie"] +=1
+			character_points["Rapunzel"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Tarzan"] +=1
+#comparing weapons
+		if weapon == 'sword':
+			character_points["Tarzan"] +=1
+			character_points["Aladdin"] +=1
+		elif weapon == 'Rose':
+			character_points["Mickey"] +=1
+			character_points["Minnie"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Rapunzel"] +=1
+		elif weapon == 'Book':
+			character_points["Belle"] +=1
+		elif weapon == 'Robots':
+			character_points["WALL-E"] +=1
+		elif weapon == 'Magic':
+			character_points["Pumba"] +=1
+			character_points["Ariel"] +=1
+			character_points["Genie"] +=1
+			character_points["Aladdin"] +=1
+#comparing weather
+		if weather == "Storm":
+			character_points["Ariel"] +=1
+			character_points["Tarzan"] +=1
+			character_points["Aladdin"] +=1
+		elif weather == 'Sunny':
+			character_points["Mickey"] +=1
+			character_points["Minnie"] +=1
+		elif weather == 'Cloudy':
+			character_points["Pumba"] +=1
+			character_points["WALL-E"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Rapunzel"] +=1
+		elif weather == 'Snow':
+			character_points["Belle"] +=1
+		elif weather == 'Windy':
+			character_points["Genie"] +=1
+			character_points["Hiro"] +=1
+# comparing accessory
+		if accessory == 'Tiara':
+			character_points["Ariel"] +=1
+			character_points["Cinderella"] +=1
+			character_points["Rapunzel"] +=1
+			character_points["Belle"] +=1
+		elif accessory == "Hat":
+			character_points["Pumba"] +=1
+			character_points["Mickey"] +=1
+			character_points["Minnie"] +=1
+		elif accessory == "slipper":
+			character_points["Genie"] +=1
+			character_points["Aladdin"] +=1
+		elif accessory == "helmet":
+			character_points["WALL-E"] +=1
+			character_points["Hiro"] +=1
+			character_points["Tarzan"] +=1
 
-		template = env.get_template("matching_disney.html")
-		self.response.write(template.render())
+		maxi = 0
+		for n in character_points:
+			if character_points[n] > maxi:
+				maxi = character_points[n]
+			
+
+		if maxi == character_points["Ariel"]:
+			pic = characters["Ariel"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/ariel.png":
+					char = key
+		elif maxi == character_points["Hiro"]:
+			pic = characters["Hiro"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/h.jpeg":
+					char = key
+		elif maxi == character_points["WALL-E"]:
+			pic = characters["WALL-E"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/walle.jpeg":
+					char = key	
+		elif maxi == character_points["Belle"]:
+			pic = characters["Belle"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/download.jpeg":
+					char = key
+		elif maxi == character_points["Aladdin"]:
+			pic = characters["Aladdin"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/aladdin.jpeg":
+					char = key
+		elif maxi == character_points["Genie"]:
+			pic = characters["Genie"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/genie.jpeg":
+					char = key			
+		elif maxi == character_points["Pumba"]:
+			pic = characters["Pumba"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/pumba.jpeg":
+					char = key
+		elif maxi == character_points["Rapunzel"]:
+			pic = characters["Rapunzel"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/rapunzel.jpeg":
+					char = key
+		elif maxi == character_points["Mickey"]:
+			pic = characters["Mickey"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/mickey.jpeg":
+					char = key
+		elif maxi == character_points["Minnie"]:
+			pic = characters["Minnie"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/minnie.jpeg":
+					char = key
+		elif maxi == character_points["Cinderella"]:
+			pic= characters["Cinderella"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/cinderella.jpg":
+					char = key
+		elif maxi == character_points["Tarzan"]:
+			pic = characters["Tarzan"]
+			for key,value in characters.iteritems():
+				if value == "/static/Pictures/tarzan.jpg":
+					char = key
+		
+		data = {'character': char, 'picture': pic}
+		self.response.write(template.render(data))
 
  
 
