@@ -34,38 +34,38 @@ env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        if user:
-            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
-                (user.nickname(), users.create_logout_url('/')))
-        else:
-            greeting = ('<a href="%s">Sign in or register</a>.' %
-                users.create_login_url('/home'))
-
-        self.response.out.write('<html><body>%s</body></html>' % greeting)
+	def get(self):
+		template = env.get_template('login.html')
+		user = users.get_current_user()
+		if user:
+			url = users.create_logout_url('/')
+			data = {'url' : url}
+		else:
+			url = users.create_login_url('/home')
+			data = {'url' : url}
+		self.response.write(template.render(data))
 
 class HomeHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('homepage.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('homepage.html')
+		self.response.write(template.render())
 
 class SongHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('project-song.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('project-song.html')
+		self.response.write(template.render())
 
 class DisneyHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('disney.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('disney.html')
+		self.response.write(template.render())
 
-        
+		
 
 class foodHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('food.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('food.html')
+		self.response.write(template.render())
 
 class MatchingFoodHandler(webapp2.RequestHandler):
 	def post(self):
@@ -321,11 +321,11 @@ class MatchingSongHandler(webapp2.RequestHandler):
 					 "Cosmic Love - Florence and the Machine" : "https://www.youtube.com/embed/2EIeUlvHAiM", 
 					 "Hips Don't Lie - Shakira" : "https://www.youtube.com/embed/DUT5rEU6pqM",
 					 "Stairway to Heaven - Led Zeppelin" : "https://www.youtube.com/embed/oW_7XBrDBAA",
-			  		 "Work It - Missy Elliot" : "https://www.youtube.com/embed/cjIvu7e6Wq8",
+					 "Work It - Missy Elliot" : "https://www.youtube.com/embed/cjIvu7e6Wq8",
 					 "Unsteady - X Ambassadors" : "https://www.youtube.com/embed/V0lw3qylVfY",
 					 "Promise - Romeo Santos ft Usher" : "https://www.youtube.com/embed/Y3XyWhrZnqE",
 					 "No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz" : "https://www.youtube.com/embed/_2LXpNmjxMw",
-			  		 "Homecoming - Kanye ft. Chris Martin" : "https://www.youtube.com/embed/LQ488QrqGE4",
+					 "Homecoming - Kanye ft. Chris Martin" : "https://www.youtube.com/embed/LQ488QrqGE4",
 					 "Viva La Vida - Coldplay" : "https://www.youtube.com/embed/Tmb7YIKqLeM",
 					 "Where Ya At - Drake & Future" : "https://www.youtube.com/embed/lw3Or6eqIpI",
 					 "Friday - Rebecca " : "https://www.youtube.com/embed/kfVsfOSbJY0",
@@ -410,14 +410,14 @@ class MatchingSongHandler(webapp2.RequestHandler):
 # first line comparing birthdays
 			if birthday == 'January' : 
 				song_points["Dream On - Aerosmith"] +=1
-		 		song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
-		 		song_points["Stairway to Heaven - Led Zeppelin"] +=1
-		 	elif birthday == 'February':
-		 		song_points["Roses - Chainsmokers ft. Rozes" ] +=1	
-		 		song_points["Never Gonna Give You Up - Rick Astley"] +=1
-		 		song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
-		 		song_points["Hips Don't Lie - Shakira"] +=1
-		 	elif birthday == "March":
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
+				song_points["Stairway to Heaven - Led Zeppelin"] +=1
+			elif birthday == 'February':
+				song_points["Roses - Chainsmokers ft. Rozes" ] +=1	
+				song_points["Never Gonna Give You Up - Rick Astley"] +=1
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
+				song_points["Hips Don't Lie - Shakira"] +=1
+			elif birthday == "March":
 				song_points["Dancing Queen - ABBA"] +=1
 				song_points["Homecoming - Kanye ft. Chris Martin"] +=1
 			elif birthday == "April":
@@ -435,7 +435,7 @@ class MatchingSongHandler(webapp2.RequestHandler):
 				song_points['Dani California - Red Hot Chili Peppers'] +=1
 				song_points["Cosmic Love - Florence and the Machine"] +=1
 			elif birthday == "September":
-				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] += 2 
+				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] += 1 
 				song_points['Single Ladies - Beyonce'] +=1
 			elif birthday == "October":
 				song_points["Where Ya At - Drake & Future"] +=1
@@ -473,21 +473,21 @@ class MatchingSongHandler(webapp2.RequestHandler):
 				song_points["Bohemian Rhapsody - Queen"] +=1
 				song_points["Never Gonna Give You Up - Rick Astley"] +=1
 			elif num == "85":
-				song_points["Homecoming - Kanye ft. Chris Martin"] +=3
-				song_points["Viva La Vida - Coldplay"] +=3
-				song_points["Where Ya At - Drake & Future"] +=3
+				song_points["Homecoming - Kanye ft. Chris Martin"] +=1
+				song_points["Viva La Vida - Coldplay"] +=1
+				song_points["Where Ya At - Drake & Future"] +=1
 			elif num == "11":
-				song_points["Stairway to Heaven - Led Zeppelin"] +=2
-				song_points["Work It - Missy Elliot"] +=2
-				song_points["Unsteady - X Ambassadors"] +=2
+				song_points["Stairway to Heaven - Led Zeppelin"] +=1
+				song_points["Work It - Missy Elliot"] +=1
+				song_points["Unsteady - X Ambassadors"] +=1
 			elif num == "94":
-				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 5
-				song_points['Single Ladies - Beyonce'] +=5
-				song_points['Dani California - Red Hot Chili Peppers'] +=5
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
+				song_points['Single Ladies - Beyonce'] +=1
+				song_points['Dani California - Red Hot Chili Peppers'] +=1
 			elif num == "561":
-				song_points["Roses - Chainsmokers ft. Rozes" ] +=2
-				song_points["Friday - Rebecca "] +=2
-				song_points["Dancing Queen - ABBA"] +=2
+				song_points["Roses - Chainsmokers ft. Rozes" ] +=1
+				song_points["Friday - Rebecca "] +=1
+				song_points["Dancing Queen - ABBA"] +=1
 			elif num == "100":
 				song_points["Promise - Romeo Santos ft Usher"] +=1
 				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] +=1
@@ -495,19 +495,19 @@ class MatchingSongHandler(webapp2.RequestHandler):
 				song_points["Cosmic Love - Florence and the Machine"] +=1
 # #clothes comparison starts here
 			if clothes == "grey":
-				song_points["Promise - Romeo Santos ft Usher"] +=2
-				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] +=2
-				song_points["Hips Don't Lie - Shakira"] +=2
-				song_points["Cosmic Love - Florence and the Machine"] +=2
-				song_points["Friday - Rebecca "] +=2
-				song_points["Dancing Queen - ABBA"] +=2
+				song_points["Promise - Romeo Santos ft Usher"] +=1
+				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] +=1
+				song_points["Hips Don't Lie - Shakira"] +=1
+				song_points["Cosmic Love - Florence and the Machine"] +=1
+				song_points["Friday - Rebecca "] +=1
+				song_points["Dancing Queen - ABBA"] +=1
 			elif clothes == "orange":
-				song_points["Work It - Missy Elliot"] +=2
-				song_points["Unsteady - X Ambassadors"] +=2
-				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 2
+				song_points["Work It - Missy Elliot"] +=1
+				song_points["Unsteady - X Ambassadors"] +=1
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
 				song_points['Single Ladies - Beyonce'] +=2
-				song_points['Dani California - Red Hot Chili Peppers'] +=2
-				song_points["Roses - Chainsmokers ft. Rozes" ] +=2
+				song_points['Dani California - Red Hot Chili Peppers'] +=1
+				song_points["Roses - Chainsmokers ft. Rozes" ] +=1
 			elif clothes == "tree":
 				song_points["Dream On - Aerosmith"] +=1
 				song_points["Bohemian Rhapsody - Queen"] +=1
@@ -799,23 +799,23 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
 			character_points["WALL-E"] +=1
 #comparing numbers starts here
 		if num == '4':
-			character_points["Hiro"] +=8
-			character_points["Ariel"] +=8
+			character_points["Hiro"] +=1
+			character_points["Ariel"] +=1
 		elif num == '8':
-			character_points["WALL-E"] +=4
-			character_points["Belle"] +=4
+			character_points["WALL-E"] +=1
+			character_points["Belle"] +=1
 		elif num == '11':
 			character_points["Aladdin"] +=1
 			character_points["Cinderella"] +=1
 		elif num == '7':
-			character_points["Genie"] +=6
-			character_points["Pumba"] +=6
+			character_points["Genie"] +=1
+			character_points["Pumba"] +=1
 		elif num == '6':
-			character_points["Rapunzel"] +=7
-			character_points["Mickey"] +=7
+			character_points["Rapunzel"] +=1
+			character_points["Mickey"] +=1
 		elif num == '1':
-			character_points["Minnie"] +=11
-			character_points["Tarzan"] +=11
+			character_points["Minnie"] +=1
+			character_points["Tarzan"] +=1
 #comparing food starts here
 		if food == 'pizza':
 			character_points["Ariel"] +=1
@@ -1021,12 +1021,12 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/home', HomeHandler),
-    ('/song_quiz', SongHandler),
-    ('/matching_song', MatchingSongHandler),
-    ('/disney', DisneyHandler),
-    ('/food', foodHandler),
-    ('/matching_food', MatchingFoodHandler),
-    ('/matching_disney', MatchingDisneyHandler),
+	('/', MainHandler),
+	('/home', HomeHandler),
+	('/song_quiz', SongHandler),
+	('/matching_song', MatchingSongHandler),
+	('/disney', DisneyHandler),
+	('/food', foodHandler),
+	('/matching_food', MatchingFoodHandler),
+	('/matching_disney', MatchingDisneyHandler),
 ], debug=True)
