@@ -16,6 +16,10 @@ function goToFood(){
 	window.location.replace('/food');
 }
 
+function goSignOut(){
+	window.location.replace('/')
+}
+
 
 
 function setup(){
@@ -23,6 +27,7 @@ function setup(){
 	$('#home').click(goHome);
 	$("#disney").click(goToDisney);
 	$('#food').click(goToFood);
+	$('#signout').click(goSignOut);
 }
 
 $(document).ready(setup);

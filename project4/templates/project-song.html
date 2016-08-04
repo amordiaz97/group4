@@ -24,6 +24,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 <body>
 
+<!--Navbar -->
 <ul class="w3-navbar w3-red w3-card-2 w3-top w3-left-align w3-large">
   <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
     <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -32,7 +33,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <li id = "songm" class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"><i class="em em-musical_note"></i>Song Matcher</a></li>
   <li id = "disney" class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"><i class="em em-european_castle"></i>Who is your Disney Character?</a></li>
   <li id = "food" class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"> <i class="em em-fries"></i>What food defines you?</a></li>
-  </ul>
+  <li id ="signout" class= "w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"><i class="em em-grey_exclamation"></i>Sign Out</a></li>
+  
+
+</ul>
 <br>
 <br>
 <br>
@@ -40,7 +44,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 
 
-</head>
+
 
 <iframe src="https://media.giphy.com/media/BU9GQVn6ezaPS/giphy.gif" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 
@@ -50,7 +54,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <!--Question 1 -->
 <form action="/matching_song" method="post">
-<label>
+
 <h3> 1. What is your name? </h3>
   <input type="text" name="fandlname"><br>
  
@@ -221,16 +225,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <input type="radio" name="colorpick" value="red" > <font color="red">Red</font>
 <br>
 <input type="radio" name="colorpick" value="blue" > <font color="blue">Blue</font><br>
+
 <input type="radio" name="colorpick" value="yellow" > <font color="yellow">Yellow</font><br>
+
 <input type="radio" name="colorpick" value="black" > Black <br>
-<input type="radio" name="colorpick" value="green"> <font color="green">Green</font><br> 
+
+<input type="radio" name="colorpick" value="green"> <font color="green">Green</font><br>
+
 <input type="radio" name="colorpick" value="white" > White <br>
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
    <input id = "submit" class = "submit-button" type = "submit" value="Submit" >
 
   </input>
-</label>
+</body>
 </form>
