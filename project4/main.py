@@ -435,7 +435,7 @@ class MatchingSongHandler(webapp2.RequestHandler):
 				song_points['Dani California - Red Hot Chili Peppers'] +=1
 				song_points["Cosmic Love - Florence and the Machine"] +=1
 			elif birthday == "September":
-				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] += 2 
+				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] += 1 
 				song_points['Single Ladies - Beyonce'] +=1
 			elif birthday == "October":
 				song_points["Where Ya At - Drake & Future"] +=1
@@ -473,21 +473,21 @@ class MatchingSongHandler(webapp2.RequestHandler):
 				song_points["Bohemian Rhapsody - Queen"] +=1
 				song_points["Never Gonna Give You Up - Rick Astley"] +=1
 			elif num == "85":
-				song_points["Homecoming - Kanye ft. Chris Martin"] +=3
-				song_points["Viva La Vida - Coldplay"] +=3
-				song_points["Where Ya At - Drake & Future"] +=3
+				song_points["Homecoming - Kanye ft. Chris Martin"] +=1
+				song_points["Viva La Vida - Coldplay"] +=1
+				song_points["Where Ya At - Drake & Future"] +=1
 			elif num == "11":
-				song_points["Stairway to Heaven - Led Zeppelin"] +=2
-				song_points["Work It - Missy Elliot"] +=2
-				song_points["Unsteady - X Ambassadors"] +=2
+				song_points["Stairway to Heaven - Led Zeppelin"] +=1
+				song_points["Work It - Missy Elliot"] +=1
+				song_points["Unsteady - X Ambassadors"] +=1
 			elif num == "94":
-				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 5
-				song_points['Single Ladies - Beyonce'] +=5
-				song_points['Dani California - Red Hot Chili Peppers'] +=5
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
+				song_points['Single Ladies - Beyonce'] +=1
+				song_points['Dani California - Red Hot Chili Peppers'] +=1
 			elif num == "561":
-				song_points["Roses - Chainsmokers ft. Rozes" ] +=2
-				song_points["Friday - Rebecca "] +=2
-				song_points["Dancing Queen - ABBA"] +=2
+				song_points["Roses - Chainsmokers ft. Rozes" ] +=1
+				song_points["Friday - Rebecca "] +=1
+				song_points["Dancing Queen - ABBA"] +=1
 			elif num == "100":
 				song_points["Promise - Romeo Santos ft Usher"] +=1
 				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] +=1
@@ -495,19 +495,19 @@ class MatchingSongHandler(webapp2.RequestHandler):
 				song_points["Cosmic Love - Florence and the Machine"] +=1
 # #clothes comparison starts here
 			if clothes == "grey":
-				song_points["Promise - Romeo Santos ft Usher"] +=2
-				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] +=2
-				song_points["Hips Don't Lie - Shakira"] +=2
-				song_points["Cosmic Love - Florence and the Machine"] +=2
-				song_points["Friday - Rebecca "] +=2
-				song_points["Dancing Queen - ABBA"] +=2
+				song_points["Promise - Romeo Santos ft Usher"] +=1
+				song_points["No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz"] +=1
+				song_points["Hips Don't Lie - Shakira"] +=1
+				song_points["Cosmic Love - Florence and the Machine"] +=1
+				song_points["Friday - Rebecca "] +=1
+				song_points["Dancing Queen - ABBA"] +=1
 			elif clothes == "orange":
-				song_points["Work It - Missy Elliot"] +=2
-				song_points["Unsteady - X Ambassadors"] +=2
-				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 2
+				song_points["Work It - Missy Elliot"] +=1
+				song_points["Unsteady - X Ambassadors"] +=1
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
 				song_points['Single Ladies - Beyonce'] +=2
-				song_points['Dani California - Red Hot Chili Peppers'] +=2
-				song_points["Roses - Chainsmokers ft. Rozes" ] +=2
+				song_points['Dani California - Red Hot Chili Peppers'] +=1
+				song_points["Roses - Chainsmokers ft. Rozes" ] +=1
 			elif clothes == "tree":
 				song_points["Dream On - Aerosmith"] +=1
 				song_points["Bohemian Rhapsody - Queen"] +=1
@@ -799,23 +799,23 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
 			character_points["WALL-E"] +=1
 #comparing numbers starts here
 		if num == '4':
-			character_points["Hiro"] +=8
-			character_points["Ariel"] +=8
+			character_points["Hiro"] +=1
+			character_points["Ariel"] +=1
 		elif num == '8':
-			character_points["WALL-E"] +=4
-			character_points["Belle"] +=4
+			character_points["WALL-E"] +=1
+			character_points["Belle"] +=1
 		elif num == '11':
 			character_points["Aladdin"] +=1
 			character_points["Cinderella"] +=1
 		elif num == '7':
-			character_points["Genie"] +=6
-			character_points["Pumba"] +=6
+			character_points["Genie"] +=1
+			character_points["Pumba"] +=1
 		elif num == '6':
-			character_points["Rapunzel"] +=7
-			character_points["Mickey"] +=7
+			character_points["Rapunzel"] +=1
+			character_points["Mickey"] +=1
 		elif num == '1':
-			character_points["Minnie"] +=11
-			character_points["Tarzan"] +=11
+			character_points["Minnie"] +=1
+			character_points["Tarzan"] +=1
 #comparing food starts here
 		if food == 'pizza':
 			character_points["Ariel"] +=1
