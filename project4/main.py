@@ -201,7 +201,7 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
 #comparing hungry ?
 			if hungry_yes_no == 'sad':
-<<<<<<< HEAD
+
 				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
 				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
 				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 1
@@ -212,18 +212,8 @@ class MatchingFoodHandler(webapp2.RequestHandler):
 				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 1
 				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 1
 				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 1
-=======
-				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 2
-				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 2
-				food_points["Chocolate: You are mellow; and you often go with the flow. You are also intelligent and love to be the center of attention. You have a very flexible nature. Your natural enemy is a potato. "] += 2
-				food_points["Potatoes : You have a starchy personality. You always dress on point, whether you are fried, baked, or mashed. "] += 2
-				food_points["Pizza Crust: You are so picky and reluctant to try new foods. This means you have a stubborn tendency to complete one task before moving on to another."] += 2
-				food_points["Sushi: You have a refined character that contains an excessive amount of style and poise."] += 2
-				food_points["Banana: You are funny and never let anything get in the way of a joke! You always make your friends laugh. Your natural enemy is a lemon."] += 2
-				food_points["Shrimp: You have a selfish personality, you must stay true to meeting your goals and build your confidence. Your enemy is sushi. "] += 2
-				food_points["Bread: You have your own distinctive and taste. You are full of fun and you are easy to get along with."] += 2
-				food_points["Spaghetti: You are very genuine. Your have a very warm and comforting personality."] += 2
->>>>>>> origin/master
+
+
 			elif hungry_yes_no == 'hungry':
 				food_points['Kiwi: You are very versatile, always switching up your physical appearance to match your daily mood. Your enemy is chocolate.'] += 1
 				food_points["Lemon: You have a sour personality. People see you as bright, but at times you may be bitter. "] += 1
@@ -709,9 +699,10 @@ class MatchingSongHandler(webapp2.RequestHandler):
 			self.response.write(template.render(data))
 
 class MatchingDisneyHandler(webapp2.RequestHandler):
-    def post(self):
+	def post(self):
 		template = env.get_template("matching_disney.html")
-		characters = {"Ariel" : "/static/Pictures/ariel.png",
+		char = " "
+		characters = {"Ariel" : "/static/Pictures/ariel.jpg",
 					"Hiro" :"/static/Pictures/h.jpeg",
 					"WALL-E": "/static/Pictures/walle.jpeg",
 					"Belle" : "/static/Pictures/download.jpeg",
@@ -963,7 +954,7 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
 		if maxi == character_points["Ariel"]:
 			pic = characters["Ariel"]
 			for key,value in characters.iteritems():
-				if value == "/static/Pictures/ariel.png":
+				if value == "/static/Pictures/ariel.jpg":
 					char = key
 		elif maxi == character_points["Hiro"]:
 			pic = characters["Hiro"]
