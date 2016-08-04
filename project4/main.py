@@ -34,38 +34,38 @@ env=jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        if user:
-            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
-                (user.nickname(), users.create_logout_url('/')))
-        else:
-            greeting = ('<a href="%s">Sign in or register</a>.' %
-                users.create_login_url('/home'))
-
-        self.response.out.write('<html><body>%s</body></html>' % greeting)
+	def get(self):
+		template = env.get_template('login.html')
+		user = users.get_current_user()
+		if user:
+			url = users.create_logout_url('/')
+			data = {'url' : url}
+		else:
+			url = users.create_login_url('/home')
+			data = {'url' : url}
+		self.response.write(template.render(data))
 
 class HomeHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('homepage.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('homepage.html')
+		self.response.write(template.render())
 
 class SongHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('project-song.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('project-song.html')
+		self.response.write(template.render())
 
 class DisneyHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('disney.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('disney.html')
+		self.response.write(template.render())
 
-        
+		
 
 class foodHandler(webapp2.RequestHandler):
-    def get(self):
-        template = env.get_template('food.html')
-        self.response.write(template.render())
+	def get(self):
+		template = env.get_template('food.html')
+		self.response.write(template.render())
 
 class MatchingFoodHandler(webapp2.RequestHandler):
 	def post(self):
@@ -321,11 +321,11 @@ class MatchingSongHandler(webapp2.RequestHandler):
 					 "Cosmic Love - Florence and the Machine" : "https://www.youtube.com/embed/2EIeUlvHAiM", 
 					 "Hips Don't Lie - Shakira" : "https://www.youtube.com/embed/DUT5rEU6pqM",
 					 "Stairway to Heaven - Led Zeppelin" : "https://www.youtube.com/embed/oW_7XBrDBAA",
-			  		 "Work It - Missy Elliot" : "https://www.youtube.com/embed/cjIvu7e6Wq8",
+					 "Work It - Missy Elliot" : "https://www.youtube.com/embed/cjIvu7e6Wq8",
 					 "Unsteady - X Ambassadors" : "https://www.youtube.com/embed/V0lw3qylVfY",
 					 "Promise - Romeo Santos ft Usher" : "https://www.youtube.com/embed/Y3XyWhrZnqE",
 					 "No Problem - Chance The Rapper ft. Lil Wayne & 2 Chainz" : "https://www.youtube.com/embed/_2LXpNmjxMw",
-			  		 "Homecoming - Kanye ft. Chris Martin" : "https://www.youtube.com/embed/LQ488QrqGE4",
+					 "Homecoming - Kanye ft. Chris Martin" : "https://www.youtube.com/embed/LQ488QrqGE4",
 					 "Viva La Vida - Coldplay" : "https://www.youtube.com/embed/Tmb7YIKqLeM",
 					 "Where Ya At - Drake & Future" : "https://www.youtube.com/embed/lw3Or6eqIpI",
 					 "Friday - Rebecca " : "https://www.youtube.com/embed/kfVsfOSbJY0",
@@ -410,14 +410,14 @@ class MatchingSongHandler(webapp2.RequestHandler):
 # first line comparing birthdays
 			if birthday == 'January' : 
 				song_points["Dream On - Aerosmith"] +=1
-		 		song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
-		 		song_points["Stairway to Heaven - Led Zeppelin"] +=1
-		 	elif birthday == 'February':
-		 		song_points["Roses - Chainsmokers ft. Rozes" ] +=1	
-		 		song_points["Never Gonna Give You Up - Rick Astley"] +=1
-		 		song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
-		 		song_points["Hips Don't Lie - Shakira"] +=1
-		 	elif birthday == "March":
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
+				song_points["Stairway to Heaven - Led Zeppelin"] +=1
+			elif birthday == 'February':
+				song_points["Roses - Chainsmokers ft. Rozes" ] +=1	
+				song_points["Never Gonna Give You Up - Rick Astley"] +=1
+				song_points["This Is What You Came For - Calvin Harris ft. Rihanna"] += 1
+				song_points["Hips Don't Lie - Shakira"] +=1
+			elif birthday == "March":
 				song_points["Dancing Queen - ABBA"] +=1
 				song_points["Homecoming - Kanye ft. Chris Martin"] +=1
 			elif birthday == "April":
@@ -1021,12 +1021,12 @@ class MatchingDisneyHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/home', HomeHandler),
-    ('/song_quiz', SongHandler),
-    ('/matching_song', MatchingSongHandler),
-    ('/disney', DisneyHandler),
-    ('/food', foodHandler),
-    ('/matching_food', MatchingFoodHandler),
-    ('/matching_disney', MatchingDisneyHandler),
+	('/', MainHandler),
+	('/home', HomeHandler),
+	('/song_quiz', SongHandler),
+	('/matching_song', MatchingSongHandler),
+	('/disney', DisneyHandler),
+	('/food', foodHandler),
+	('/matching_food', MatchingFoodHandler),
+	('/matching_disney', MatchingDisneyHandler),
 ], debug=True)
