@@ -21,6 +21,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 <body>
 
+
+<!--Navbar -->
 <ul class="w3-navbar w3-red w3-card-2 w3-top w3-left-align w3-large">
   <li class="w3-hide-medium w3-hide-large w3-opennav w3-right">
     <a class="w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -29,6 +31,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <li id = "songm" class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"><i class="em em-musical_note"></i>Song Matcher</a></li>
   <li id = "disney" class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"><i class="em em-european_castle"></i>Who is your Disney Character?</a></li>
   <li id = "food" class="w3-hide-small"><a href="#" class="w3-padding-large w3-hover-white"> <i class="em em-fries"></i>What food defines you?</a></li>
+  
+
   </ul>
 
 <br>
@@ -47,27 +51,35 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <body class = "positioning_text">
 
 <form action="/matching_food" method="post">
-<label>
+
 <h3> 1. What is your name? </h3>
-<input type= "text" name="letter" ><br>
+  <input type= "text" name="letter" ><br>
 <!-- Question 2-->
+
 
 <h3> 2. Pick your favorite pizza topping: <i class="em em-pizza"></i> <br> </h3>
 
  <input type="radio" name="pizzatop" value="sausage" >  Sausage &nbsp;
+
  <input type="radio" name="pizzatop" value="pepperoni">  Pepperoni &nbsp;
+
  <input type="radio" name="pizzatop" value="mushroom" >  Mushroom &nbsp;
+
  <input type="radio" name="pizzatop" value="olives">  Olives &nbsp;
- <input type="radio" name="pizzatop" value="chicken" >  Chicken <i class="em em-chicken"></i></p><br>
+
+ <input type="radio" name="pizzatop" value="chicken" >  Chicken <i class="em em-chicken"></i><br>
 
 <!--Question 3 -->
 
 <h3> 3. Speaking of chicken... </h3>
 
-<input type="radio" name="chxtype" value="chxtenders" > Chicken Tenders
+<input type="radio" name="chxtype" value="chxtenders" > Chicken Tenders 
+
 <img class = "img-circle" type="image" src="http://ballantynevillage.com/resources/flyers/927535dfe5442244994d35a92688a882.png" alt="chxpic1" height="70" width="140"> 
 
-<input type="radio" name="chxtype" value="chxnugs"> Chicken Nuggets
+<input type="radio" name="chxtype" value="chxnugs"> Chicken Nuggets 
+
+
 <img class = "img-circle" type="image" src="http://r3.foodlogistics.com/files/base/FL/image/2015/06/16x9/640x360/chicken_nuggets.5592b08088bf7.jpg" alt="chxpic2" height="70" width="140">  <br>
 
 <input type="radio" name="chxtype" value="friedchx"> Fried Chicken 
@@ -75,6 +87,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <img class = "img-circle" type="image" src="http://www.seriouseats.com/images/20120112-popeyes-refried-chicken-6.jpg" alt="chxpic2" height="70" width="140"> 
 <input type="radio" name="chxtype" value = "rostchx"> Rotisserie Chicken 
 <img class = "img-circle" type="image" src="http://shanghai.talkmagazines.cn/sites/talkmagazines.cn/files/imagecache/col1_full/RoastedChicken_Standalone.jpg" alt="chxpic2" height="70" width="140"> 
+
 <br>
 <br>
 <input type="radio" name="chxtype" value="nochx"> ew i h8 chicken!
@@ -90,11 +103,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
    
 
 <input type="radio" name="herbguess" value="cilantro" > Cilantro &nbsp;
+
 <input type="radio" name="herbguess" value="dill"> Dill &nbsp;
+
 <input type="radio" name="herbguess" value="basil"> Basil &nbsp;
+
 <input type="radio" name="herbguess" value="sage" > Sage<br> 
+
 <input type="radio" name="herbguess" value="mint"> Mint &nbsp;
+
 <input type="radio" name="herbguess" value="thyme"> Thyme &nbsp; <br>
+
 <input type="radio" name="herbguess" value="christmastree" > wait a minute...isn't that from a Christmas tree? <i class="em em-christmas_tree"></i><br>
 
 
